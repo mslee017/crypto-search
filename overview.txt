@@ -1,0 +1,43 @@
+Prompt
+
+The goal of this exercise is to create a performant and user-friendly search feature that allows users to easily find and select the desired cryptocurrency asset.
+
+- The search feature will be a user interface component that includes a search input field.
+- As the user types into the search input field, the component will dynamically suggest and display a list of relevant options based on the user's input.
+- The user will then have the option to select an option from the dropdown menu or continue typing to further refine the search.
+- Selecting an option from the dropdown will populate that into the search input and close the dropdown.
+
+You can use the API given below.
+https://www.coinbase.com/api/v2/assets/search?query=bitcoin&limit=10
+
+
+OVERVIEW FROM THE PAIR PROGRAMMING SESSION
+1. App should contain 2 different folders in the SRC folder: hooks and components
+2. Only need 2 components: Search Dropdown and Search input
+3. Random note from Abhishek: use VALUE to pass props when you can, or more generic names in general
+
+APP COMPONENT ************************
+1. Needs a state value that should be tied to user input
+2. HandleChange needs to be attached to the state and passed to the input
+3. Only show the dropdown IF the state has a value. Else null
+4. Advanced but the useDebounce custom hook should go here. Used as argument in the useAssetSearch custom hook
+
+SEARCH INPUT ***************************
+1. Nothing fancy. Just returns and input type of text with the props attached to it
+
+SEARCH DROPDOWN *************************
+1. Nothing fancy again. Make sure to use a UL as a wrapper and then map over the results prop and return an LI for each item
+
+**************************  CUSTOM HOOKS ****************************
+
+useAssetSearch (overall purpose is to call the API data) ******************
+1. Will need useEffect and useState
+2. Needs a function to fetch data (needs an argument, will be what user types). Is not inside the hook. This returns a promise which is then used in the hook
+3. The core function of the hook is to make an API call with the user input, store the assets in state and then return the assets
+4. useEffect DEPENDS on the query here
+
+useDebounce ***********************
+1. Alternatively, check Web Dev Simplified for his custom debounce hook
+2. Otherwise, we will need useState and useEffect
+3. Hook should take 2 arguments (the value and the delay)
+4.

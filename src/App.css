@@ -1,0 +1,28 @@
+#root {
+  max-width: 1280px;
+}
+
+.search-input {
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  width: 300px;
+}
+
+.dropdown {
+  list-style-type: none;
+  padding-left: 0;
+  background-color: white;
+  border-radius: 3px;
+  width: 300px;
+}
+
+.dropdown-element {
+  padding-left: 5px;
+
+  cursor: pointer;
+}
+
+.dropdown-element:hover {
+  background-color: lightgrey;
+}
